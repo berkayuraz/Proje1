@@ -14,18 +14,18 @@ app.use(express.json())
 app.get("/personels",async(req,res) => {
     
   try {
-    const personels = await Personel.find({});
-    res.send(personels);
+    const personels = await Personel.find({})
+    res.send(personels)
   } catch (error) {
-    console.error(error);
+    console.error(error)
     
   }
     
 })
 //Update isteği ile verilen ID kullanıcıyı update ettik.
 app.put('/personels/:id', async (req, res) => {
-  const { id } = req.params;
-  const { name, age, job} = req.body;
+  const { id } = req.params
+  const { name, age, job} = req.body
 
   try {
     const personels = await Personel.findByIdAndUpdate(id, { name, age,job }, { new: true })
